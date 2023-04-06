@@ -21,6 +21,12 @@ header {
     border-radius: 10px 10px 0 0;
 }
 
+/* .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
 .navbar ul {
     display: flex;
     gap: 5px;
@@ -124,12 +130,36 @@ footer img:hover {
     background-color: #4a4848;
 }
 
+.search{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.searchPokemon{
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+}
+
+.searchButton{
+    width: 40px;
+    border-radius: 5px;
+}
+
+.searchIcon{
+    width: 20px;
+}
+
 h2 {
     margin-top: 25px;
     margin-left: 50px;
     font-size: 40px;
     text-transform: uppercase;
 }
+
+
 
 @media screen and (max-width: 700px) {
     header {
