@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>pokedex</title>
 </head>
 
@@ -16,9 +17,14 @@
                 <img src="./img/pokebolla.png" alt="pokebolla">
             </li>
             <li id="poke">pokédex_</li>
+            <li id="poke">Version 3.0</li>
         </ul>
     </header>
     <main class="principal">
+
+            <div class="main__buttons"></div>
+            <section id="pokemonDetail"></section>
+       
         <section id="lado1">
             <article id="contenedorpokemon">
                 <img src="./img/images.jfif" alt="poder">
@@ -30,31 +36,31 @@
             <article class="descripcion">
                 <ul class="inf" id="inf1">
                     <li>No</li>
-                    <li>025</li>
+                    <li class="pokemonNum">025</li>
                 </ul>
                 <ul class="inf" id="inf2">
                     <li>LEVEL</li>
-                    <li>100</li>
+                    <li class="pokemonLev">100</li>
                 </ul>
             </article>
             <article class="descripcion">
                 <ul class="inf" >
                     <li>TYPE</li>
-                    <li> Rayo</li>
+                    <li class="pokemonTyp"> Rayo</li>
                 </ul>
                 <ul class="inf">
                     <li>HABILITY</li>
-                    <li>Elec. estatica</li>
+                    <li class="pokemonHab" >Elec. estatica</li>
                 </ul>
             </article>
             <article class="descripcion">
                 <ul class="inf">
                     <li>HEIGHT</li>
-                    <li>0,4 m</li>
+                    <li class="pokemonHei" >0,4 m</li>
                 </ul>
                 <ul class="inf">
                     <li>WEIGHT</li>
-                    <li>60 kg</li>
+                    <li class="pokemonWei">60 kg</li>
                 </ul>
             </article>
         </section>
@@ -64,7 +70,7 @@
         <h2>others</h2>
     </article>
         <article>
-            <img src="./img/poke1.png" alt="pokemon1">
+            <img src="./img/poke1.png" data-pokemon="pokemon1">
         </article>
         <article>
             <img src="./img/poke2.png" alt="pokemon2">
