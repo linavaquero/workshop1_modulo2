@@ -24,5 +24,8 @@ const getPokeFromApi = async (url) => {
     //Ejecutamos la funcion que nos obtiene los pokemones
  pokedex= await getPokeFromApi(URL_API)
  console.log("pokedex", pokedex);
+ pokedex.forEach(element => {
+    
+ });
   });
 
