@@ -1,133 +1,116 @@
-//alert("estoy enlazada")
-
 let pokedex = []; //creamos un array vacio
 const ShowIconType = [
   {
-    "name": "normal",
-    "image": ""
+    "type": "normal",
+    "image": "../img/normal.PNG"
   },
   {
-    "name": "fire",
-    "image": ""
+    "type": "fire",
+    "image": "../img/fuego.PNG"
   },
   {
-    "name": "water",
-    "image": ""
+    "type": "water",
+    "image": "../img/agua.PNG"
   },
   {
-    "name": "electric",
-    "image": ""
+    "type": "electric",
+    "image": "../img/electrico.PNG"
   },
   {
-    "name": "grass",
-    "image": ""
+    "type": "grass",
+    "image": "../img/Cesped.PNG"
   },
   {
-    "name": "ice",
-    "image": ""
+    "type": "ice",
+    "image": "../img/hielo.PNG"
   },
   {
-    "name": "fighting",
-    "image": ""
+    "type": "fighting",
+    "image": "../img/Lucha.PNG"
   },
   {
-    "name": "poison",
-    "image": ""
+    "type": "poison",
+    "image": "../img/veneno.PNG"
   },
   {
-    "name": "ground",
-    "image": ""
+    "type": "ground",
+    "image": "../img/suelo.PNG"
   },
   {
-    "name": "flying",
-    "image": ""
+    "type": "flying",
+    "image": "../img/volador.PNG"
   },
   {
-    "name": "psychic",
-    "image": ""
+    "type": "psychic",
+    "image": "../img/psiquico.PNG"
   },
   {
-    "name": "bug",
-    "image": ""
+    "type": "bug",
+    "image": "../img/bicho.PNG"
   },
   {
-    "name": "rock",
-    "image": ""
+    "type": "rock",
+    "image": "../img/roca.PNG"
   },
   {
-    "name": "ghost",
-    "image": ""
+    "type": "ghost",
+    "image": "../img/fastama.PNG"
   },
   {
-    "name": "dragon",
-    "image": ""
+    "type": "dragon",
+    "image": "../img/dragon.PNG"
   },
   {
-    "name": "dark",
-    "image": ""
+    "type": "dark",
+    "image": "../img/oscura.PNG"
   },
   {
-    "name": "steel",
-    "image": ""
+    "type": "steel",
+    "image": "../img/acero.PNG"
   },
   {
-    "name": "fairy",
-    "image": ""
+    "type": "fairy",
+    "image": "../img/hada.PNG"
   },
 
 ]
 
 const URL_API = "https://pokeapi.co/api/v2/pokemon"; //API
-//const boxButtons = document.getElementById("lado1");//
-const containerPoke = document.getElementById("contenedorpokemon"); //captura del contenedor
+
+const allInfoPokemons = [];
 
 const containerDetails = document.querySelector(".descripcion"); //Captura la sección de los detalles
+const otrosPokemones = document.getElementById("otrospokemones");
 
-//Nos obtiene los pokemones de la API
-const getPokeFromApi = async (url) => { 
-    try {
-      const { data } = await axios.get(url); //desestructuración de objetos
-      return data.results;
-    } catch (error) {
-      console.log(error);
-      alert("Usuario, ocurrio un error");
-      return [];
-    }
-  };
-//función pintar pokemon principal 
+
 //capturar el contenedor 
 const URL_APIDetails = "https://pokeapi.co/api/v2/pokemon";
 const getAllInfoPokemons = async (url) => {
-    const allInfoPokemons = [];
-    try {
-      const { data } = await axios.get(url); //desestructuración de objetos
-  
-      for (const pokemon of data.results) {
-        const urlPokemon = pokemon.url;
-        const response = await axios.get(urlPokemon);
-        const poke = {
-          id: response.data.id,
-          name: response.data.name,
-          height: response.data.height,
-          image: response.data.sprites.front_default,
-          // type:response.data.types,
-          type:response.data.types[0].type.name,
-          weight:response.data.weight,
-          level:response.data.base_experience,
-          // level:response.data.growth-rate.map(item=> item.growth-rate.levels.level),
-          // type:response.data.type.map(item=> item.type.name),
-          // level:response.data.levels.map(item=> item.levels.level),
-          // abilities: response.data.abilities.map(item=> item.ability.name),
-          abilities: response.data.abilities[0].ability.name,
-        }; 
-        allInfoPokemons.push(poke);
-      }
-      return allInfoPokemons;
-    } catch (error) {
-      // console.log(error);
-      return []
+
+  try {
+    const { data } = await axios.get(url); //desestructuración de objetos
+
+    for (const pokemon of data.results) {
+      const urlPokemon = pokemon.url;
+      const response = await axios.get(urlPokemon);
+      const poke = {
+        id: response.data.id,
+        name: response.data.name,
+        height: response.data.height,
+        image: response.data.sprites.front_default,
+        type: response.data.types[0].type.name,
+        weight: response.data.weight,
+        level: response.data.base_experience,
+        abilities: response.data.abilities[0].ability.name,
+      };
+      allInfoPokemons.push(poke);
     }
+    return allInfoPokemons;
+  } catch (error) {
+    console.log(error);
+    return []
   }
+}
 
 // const getPokemonId = async (id) => { 
 //     //METODO GET
@@ -136,83 +119,92 @@ const getAllInfoPokemons = async (url) => {
 //     console.log("datos del get post by ID", PokemonId);
 // };
 
-// const printPokemonPower = (pokemonList, container) => {
-//     container.innerHTML = "";
-//     pokemonList.forEach((pokemon) => {
-//         // que la imagen que pinte sea la del poder 
-//       container.innerHTML += `
-//       <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
-//       <h1>${pokemon.name}</h1>
-//       `;
-//     });
-//   };
+const printPokemonOtros = (pokemonList, container) => {
+  let contador = 0
+  container.innerHTML = `<article>
+                          <h2>others</h2>
+                      </article>`;
+  pokemonList.forEach((pokemon) => {
+    if (contador == 0) {
 
-//   const printPokemon = (pokemonList, container) => {
-//     container.innerHTML = "";
-//     pokemonList.forEach((poke) => {
-//       container.innerHTML += `
-//       <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
-//       `;
-//     });
-//   };
-// // función pintar los detalles 
-//   const pokemonNum= document.querySelector(".pokemonNum");
-//   const pokemonLev=document.querySelector(".pokemonLev");
-//   const pokemonTyp=document.querySelector(".pokemonTyp");
-//   const pokemonHab=document.querySelector(".pokemonHab");
-//   const pokemonHei=document.querySelector(".pokemonHei");
-//   const pokemonWei=document.querySelector(".pokemonWei");
-  
-//   const printDetails = (pokemonList, container) => {
-//     container.innerHTML = "";
-//     pokemonList.forEach((pokemon) => {
-//         let pokemonNumText= document.createTextNode();
-//         // pokemonNum.appendChild(pokemonNumText);
-//         const getInfoOnePokemon = async (url) => { 
-//           try {
-//             const { data } = await axios.get(url); //desestructuración de objetos
-//             return data.id;
-//           } catch (error) {
-//             console.log(error);
-//             alert("Usuario, ocurrio un error");
-//             return [];
-//           }
-//         };
-//       console.log(pokemonId);
-//     // insertar la información en el contenedor
-//         pokemonNum.innerText= pokemonId;
-//         const pokemonLevel= 
-//         pokemonLev.innerText=pokemonLevel
-//         const pokemonType=
-//         pokemonTyp.innerText=pokemonType
-//         const pokemonHeight= 
-//         pokemonHei.innerText=pokemonHeight;
-//         const pokemonWeight=
-//         pokemonWei.innerText=pokemonWeight;
-//     });
-   
-//   };
+      printDetallePokemon(pokemon);
+    } else {
+      if (contador > 6) return
+      container.innerHTML += `   
+                          <article>
+                              <img src=${pokemon.image} data-pokemon=${pokemon.name} >
+                          </article> `
 
-  document.addEventListener("click", async (e) => {
-    const getAtribute = e.target.getAttribute("data-pokemon");
-    console.log(getAtribute);
-    if (getAtribute ==="pokemon1") {
-      const pokemon = await getAllInfoPokemons(URL_APIDetails);
-      console.log(pokemon);
     }
+    contador += 1;
+  });
+};
+
+const printDetallePokemon = (pokemon) => {
+
+  const containerPoke = document.getElementById("lado1"); //captura del contenedor
+  const containerDescripcion = document.getElementById("lado2")
+
+  const tipo = ShowIconType.find(logotipo => logotipo.type === pokemon.type)
+
+  containerPoke.innerHTML = `
+<article id="contenedorpokemonName">
+ <figure class="contenedorpokemon__figurelogo">
+  <img src=${tipo.image} alt=${tipo.type}>
+  </figure>
+  <h1>${pokemon.name}</h1>
+</article>
+<article id="contenedorpokemon">
+<figure class="contenedorpokemon__figure">
+<img src=${pokemon.image} alt=${pokemon.name} id=${pokemon.id} >
+</figure> 
+</article> `
+  containerDescripcion.innerHTML = `
+            <article class="descripcion">
+            <ul class="inf" id="inf1">
+                <li class= "inf__li">No</li>
+                <li class="pokemonNum">${pokemon.id}</li>
+            </ul>
+            <ul class="inf" id="inf2">
+                <li class= "inf__li">LEVEL</li>
+                <li class="pokemonLev">${pokemon.level}</li>
+            </ul>
+            </article>
+            <article class="descripcion1">
+            <ul class="inf">
+                <li class= "inf__li">TYPE</li>
+                <li class="pokemonTyp">${pokemon.type}</li>
+            </ul>
+            <ul class="inf">
+                <li class= "inf__li">HABILITY</li>
+                <li class="pokemonHab">${pokemon.abilities}</li>
+            </ul>
+            </article>
+            <article class="descripcion2">
+            <ul class="inf">
+                <li class= "inf__li">HEIGHT</li>
+                <li class="pokemonHei">${pokemon.height}</li>
+            </ul>
+            <ul class="inf">
+                <li class= "inf__li" >WEIGHT</li>
+                <li class="pokemonWei">${pokemon.weight}</li>
+            </ul>
+            </article>
+            `
+}
+
+const otrospokemones = document.getElementById('otrospokemones')
+otrospokemones.addEventListener("click", async (e) => {
+  const getAtribute = e.target.getAttribute("data-pokemon");
+
+  if (getAtribute != null) {
+    const pokemon = allInfoPokemons.find(poke => poke.name === getAtribute);
+    printDetallePokemon(pokemon)
+
+  }
 });
 document.addEventListener("DOMContentLoaded", async () => {
-  //Ejecutamos la funcion que nos obtiene los pokemones
-  // pokemons = await getPokemonsFromApi(URL_API);
-  // printPokemonsButtons(pokemons, boxButtons);
-
   const allInfo = await getAllInfoPokemons(URL_APIDetails);
-  // const pokeiId = await getPokemonId(URL_APIDetails);
-  console.log(allInfo);
-  // console.log(pokeiId);
-
+  printPokemonOtros(allInfo, otrosPokemones)
 });
-  
-
-
 

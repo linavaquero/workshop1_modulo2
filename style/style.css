@@ -45,25 +45,56 @@ header {
     height: 390px;
 }
 
-#contenedorpokemon {
+#contenedorpokemonName {
     width: 500px;
     background-color: beige;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 10%;
     margin: 0 auto;
     border-radius: 20px;
+    padding: 1%;
 }
-
-#contenedorpokemon img {
-    width: 50px;
-    height: 50px;
+h1{
+    text-transform: capitalize;
+}
+#contenedorpokemon{
+    background-color: none;
+    width: 80%;
+    height: 35vh;
+    justify-content: center;
+    display:flex;
+}
+#contenedorpokemon figure{
+    justify-content: center;
+    display:flex;
+    width: 40%;
+    align-items: center;
+}
+.contenedorpokemon__figure img{
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    left: 30%;
+    mix-blend-mode: hard-light;
+    filter: drop-shadow(8px 8px 8px rgb(15, 15, 15)) contrast(117%) saturate(133%);
+    image-rendering:pixelated;
+    
+    
+}
+.contenedorpokemon__figure img:hover{
+    transform: scale(1.2);
+    z-index: 100;
+    mix-blend-mode: exclusion;
+    
 }
 
 #contenedorpokemon h1 {
     text-transform: uppercase;
     line-height: 50px;
+   
 }
+
 
 #imgpokemon {
     display: block;
@@ -86,9 +117,18 @@ header {
 
 .descripcion {
     display: flex;
-    gap: 128px;
+    gap: 21%;
     margin-left: 105px;
-
+}
+.descripcion1 {
+    display: flex;
+    gap: 15%;
+    margin-left: 105px;
+}
+.descripcion2 {
+    display: flex;
+    gap: 11%;
+    margin-left: 105px;
 }
 
 .inf {
@@ -96,7 +136,15 @@ header {
     list-style: none;
     font-size: 25px;
 }
-
+.inf__li{
+    font-weight: bold;
+}
+.pokemonTyp{
+text-transform: capitalize;;
+}
+.pokemonHab{
+text-transform: capitalize;;
+}
 footer {
     padding: 10px;
     height: 120px;
@@ -122,6 +170,7 @@ footer article {
 
 footer img:hover {
     background-color: #4a4848;
+    filter: drop-shadow(2px 2px 4px gold);
 }
 
 h2 {
@@ -172,8 +221,7 @@ h2 {
 
     footer {
         display: flex;
-
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
     }
 
@@ -186,7 +234,7 @@ h2 {
     footer img {
         height: 60px;
         width: 50px;
-        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     h2 {
