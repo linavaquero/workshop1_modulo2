@@ -46,14 +46,16 @@ header {
 }
 
 #contenedorpokemonName {
-    width: 500px;
+    width: 30%;
     background-color: beige;
     display: flex;
     justify-content: center;
     gap: 10%;
-    margin: 0 auto;
+    margin-left: 12%;
     border-radius: 20px;
     padding: 1%;
+    position: relative;
+    top: 50%;
 }
 h1{
     text-transform: capitalize;
@@ -75,7 +77,7 @@ h1{
     width: 100%;
     object-fit: cover;
     position: relative;
-    left: 30%;
+    left: 100%;
     mix-blend-mode: hard-light;
     filter: drop-shadow(8px 8px 8px rgb(15, 15, 15)) contrast(117%) saturate(133%);
     image-rendering:pixelated;
@@ -108,27 +110,27 @@ h1{
 }
 
 #lado2 {
-    width: 40%;
+    width: 30%;
     background-color: #807373;
     border-radius: 20px;
-    margin-right: 100px;
+    margin-right: 200px;
+    margin-top: 2%;
 }
-
 
 .descripcion {
     display: flex;
-    gap: 21%;
-    margin-left: 105px;
+    gap: 28%;
+    margin-left: 28%;
 }
 .descripcion1 {
     display: flex;
-    gap: 15%;
-    margin-left: 105px;
+    gap: 18%;
+    margin-left: 28%;
 }
 .descripcion2 {
     display: flex;
     gap: 11%;
-    margin-left: 105px;
+    margin-left: 28%;
 }
 
 .inf {
@@ -198,33 +200,60 @@ h2 {
     .principal {
         margin: 0 15px 0 15px;
         padding-top: 30px;
-        display: block;
+        display: flex;
+        flex-direction: column;
         height: 390px;
     }
 
     #lado1 {
         width: 100%
     }
-
+    #contenedorpokemonName{
+        width: 60%;
+        top:15%;
+        left: 7%;
+    }
+    .contenedorpokemon__figure img{
+        left: auto;
+        top: -8%;
+    }
     #lado2 {
-        width: 100%;
-        height: 181px
+    width: 68%;
+    height: 181px;
+    position: absolute;
+    top: 42%;
+    margin-left: 11%;
     }
 
     .descripcion {
         display: flex;
         gap: 50px;
-        justify-content: space-around;
-        margin: 0;
-
+        margin-left: 22%;
+    }
+    .descripcion1 {
+        display: flex;
+        gap: 29px;
+        margin-left: 22%;
+    }
+    .descripcion2 {
+        display: flex;
+        gap: 15px;
+        margin-left: 22%;
     }
 
     footer {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
+        position: absolute;
+        top: 68%;
+        width: 60%;
+        left: 16%;
+        padding-left: 12%;
+        padding-right: 12%;
+        height: auto;
+        border-radius: 2%;
     }
-
     .inf {
         margin: 10px;
         font-size: 15px;
@@ -238,7 +267,7 @@ h2 {
     }
 
     h2 {
-        font-size: 15px;
+        font-size: 20px;
         margin: 5px;
     }
 
