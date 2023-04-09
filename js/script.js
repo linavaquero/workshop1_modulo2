@@ -129,69 +129,69 @@ const getAllInfoPokemons = async (url) => {
     }
   }
 
-// const getPokemonId = async (id) => { 
-//     //METODO GET
-//     const response = await axios(`${URL}/${id}`);
-//     const PokemonId= response.data.id;
-//     console.log("datos del get post by ID", PokemonId);
-// };
+const getPokemonId = async (id) => { 
+    //METODO GET
+    const response = await axios(`${URL}/${id}`);
+    const PokemonId= response.data.id;
+    console.log("datos del get post by ID", PokemonId);
+};
 
-// const printPokemonPower = (pokemonList, container) => {
-//     container.innerHTML = "";
-//     pokemonList.forEach((pokemon) => {
-//         // que la imagen que pinte sea la del poder 
-//       container.innerHTML += `
-//       <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
-//       <h1>${pokemon.name}</h1>
-//       `;
-//     });
-//   };
+const printPokemonPower = (pokemonList, container) => {
+    container.innerHTML = "";
+    pokemonList.forEach((pokemon) => {
+        // que la imagen que pinte sea la del poder 
+      container.innerHTML += `
+      <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
+      <h1>${pokemon.name}</h1>
+      `;
+    });
+  };
 
-//   const printPokemon = (pokemonList, container) => {
-//     container.innerHTML = "";
-//     pokemonList.forEach((poke) => {
-//       container.innerHTML += `
-//       <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
-//       `;
-//     });
-//   };
-// // función pintar los detalles 
-//   const pokemonNum= document.querySelector(".pokemonNum");
-//   const pokemonLev=document.querySelector(".pokemonLev");
-//   const pokemonTyp=document.querySelector(".pokemonTyp");
-//   const pokemonHab=document.querySelector(".pokemonHab");
-//   const pokemonHei=document.querySelector(".pokemonHei");
-//   const pokemonWei=document.querySelector(".pokemonWei");
+  const printPokemon = (pokemonList, container) => {
+    container.innerHTML = "";
+    pokemonList.forEach((poke) => {
+      container.innerHTML += `
+      <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
+      `;
+    });
+  };
+// función pintar los detalles 
+  const pokemonNum= document.querySelector(".pokemonNum");
+  const pokemonLev=document.querySelector(".pokemonLev");
+  const pokemonTyp=document.querySelector(".pokemonTyp");
+  const pokemonHab=document.querySelector(".pokemonHab");
+  const pokemonHei=document.querySelector(".pokemonHei");
+  const pokemonWei=document.querySelector(".pokemonWei");
   
-//   const printDetails = (pokemonList, container) => {
-//     container.innerHTML = "";
-//     pokemonList.forEach((pokemon) => {
-//         let pokemonNumText= document.createTextNode();
-//         // pokemonNum.appendChild(pokemonNumText);
-//         const getInfoOnePokemon = async (url) => { 
-//           try {
-//             const { data } = await axios.get(url); //desestructuración de objetos
-//             return data.id;
-//           } catch (error) {
-//             console.log(error);
-//             alert("Usuario, ocurrio un error");
-//             return [];
-//           }
-//         };
-//       console.log(pokemonId);
-//     // insertar la información en el contenedor
-//         pokemonNum.innerText= pokemonId;
-//         const pokemonLevel= 
-//         pokemonLev.innerText=pokemonLevel
-//         const pokemonType=
-//         pokemonTyp.innerText=pokemonType
-//         const pokemonHeight= 
-//         pokemonHei.innerText=pokemonHeight;
-//         const pokemonWeight=
-//         pokemonWei.innerText=pokemonWeight;
-//     });
+  const printDetails = (pokemonList, container) => {
+    container.innerHTML = "";
+    pokemonList.forEach((pokemon) => {
+        let pokemonNumText= document.createTextNode();
+        // pokemonNum.appendChild(pokemonNumText);
+        const getInfoOnePokemon = async (url) => { 
+          try {
+            const { data } = await axios.get(url); //desestructuración de objetos
+            return data.id;
+          } catch (error) {
+            console.log(error);
+            alert("Usuario, ocurrio un error");
+            return [];
+          }
+        };
+      console.log(pokemonId);
+    // insertar la información en el contenedor
+        pokemonNum.innerText= pokemonId;
+        const pokemonLevel= 
+        pokemonLev.innerText=pokemonLevel
+        const pokemonType=
+        pokemonTyp.innerText=pokemonType
+        const pokemonHeight= 
+        pokemonHei.innerText=pokemonHeight;
+        const pokemonWeight=
+        pokemonWei.innerText=pokemonWeight;
+    });
    
-//   };
+ };
 
   document.addEventListener("click", async (e) => {
     const getAtribute = e.target.getAttribute("data-pokemon");
