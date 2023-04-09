@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>pokedex</title>
 </head>
 
@@ -16,77 +17,31 @@
                 <img src="./img/pokebolla.png" alt="pokebolla">
             </li>
             <li id="poke">pokédex_</li>
+            <li id="poke">Version 3.0</li>
         </ul>
          <!-- Input para buscar el Pokemon -->
         <form class="search" action="">
             <input class="searchPokemon" type="text" placeholder="   Ingresa nombre del Pokemon">
-            <button class="searchButton"><img class = "searchIcon" src="https://assets.stickpng.com/images/59cfc4d2d3b1936210a5ddc7.png" alt="serch icon"></button>
+            <button class="searchButton" type="submit"><img class = "searchIcon" src= "img/magnifier-icon-school-and-education-icon-vector.jpg" alt="serch icon"></button>
         </form>
     </header>
     <main class="principal">
+
+        <div class="main__buttons"></div>
+        <section id="pokemonDetail"></section>
+
         <section id="lado1">
-            <article id="contenedorpokemon">
-                <img src="./img/images.jfif" alt="poder">
-                <h1>Pikachu</h1>
-            </article>
-            <img src="./img/025.png" alt="pokemon" id="imgpokemon">
+           
         </section>
         <section id="lado2">
-            <article class="descripcion">
-                <ul class="inf" id="inf1">
-                    <li>No</li>
-                    <li>025</li>
-                </ul>
-                <ul class="inf" id="inf2">
-                    <li>LEVEL</li>
-                    <li>100</li>
-                </ul>
-            </article>
-            <article class="descripcion">
-                <ul class="inf" >
-                    <li>TYPE</li>
-                    <li> Rayo</li>
-                </ul>
-                <ul class="inf">
-                    <li>HABILITY</li>
-                    <li>Elec. estatica</li>
-                </ul>
-            </article>
-            <article class="descripcion">
-                <ul class="inf">
-                    <li>HEIGHT</li>
-                    <li>0,4 m</li>
-                </ul>
-                <ul class="inf">
-                    <li>WEIGHT</li>
-                    <li>60 kg</li>
-                </ul>
-            </article>
+         
         </section>
     </main>
-    <footer>
-        <article>
-        <h2>others</h2>
-    </article>
-        <article>
-            <img src="./img/poke1.png" alt="pokemon1">
-        </article>
-        <article>
-            <img src="./img/poke2.png" alt="pokemon2">
-
-        </article>
-        <article>
-
-            <img src="./img/poke3.png" alt="pokemon3">
-        </article>
-        <article>
-            <img src="./img/poke4.png" alt="pokemon4">
-
-        </article>
+    <footer id="otrospokemones">
 
     </footer>
-
-    <script src="/js/script.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
