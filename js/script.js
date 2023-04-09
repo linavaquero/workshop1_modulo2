@@ -112,12 +112,6 @@ const getAllInfoPokemons = async (url) => {
   }
 }
 
-// const getPokemonId = async (id) => { 
-//     //METODO GET
-//     const response = await axios(`${URL}/${id}`);
-//     const PokemonId= response.data.id;
-//     console.log("datos del get post by ID", PokemonId);
-// };
 
 const printPokemonOtros = (pokemonList, container) => {
   let contador = 0
@@ -140,29 +134,6 @@ const printPokemonOtros = (pokemonList, container) => {
   });
 };
 
-const printPokemonFiltrado = (pokemonList, container) => {
-  let contador = 0
-
-  container.innerHTML = `<article>
-                          <h2>others</h2>
-                      </article>`;
-  pokemonList.forEach((pokemon) => {
-    if (contador == 0) {
-
-      printDetallePokemon(pokemon);
-    } else {
-      if (contador > 6) return
-      container.innerHTML += `   
-                          <article>
-                              <img src=${pokemon.image} data-pokemon=${pokemon.name} >
-                          </article> `
-
-    }
-    contador += 1;
-  })
-};
-;
-
 const printDetallePokemon = (pokemon) => {
 
   const containerPoke = document.getElementById("lado1"); //captura del contenedor
@@ -174,7 +145,7 @@ const printDetallePokemon = (pokemon) => {
   <article id="contenedorpokemon">
   <img src=${tipo.image} alt=${tipo.type}>
   <h1>${pokemon.name}</h1>
-</article>
+  </article>
 <img src=${pokemon.image} alt=${pokemon.name} id=${pokemon.id} >
   `
   containerDescripcion.innerHTML = `
@@ -229,19 +200,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 //Busqueda del Pokemon por nombre
 const filtroNombre = (nombre, arrayPokemon) => {
   const pokemonFiltrado = arrayPokemon.filter(poke => poke.name.toLowerCase().includes(nombre.toLowerCase())
-    );
-    const result = pokemonFiltrado.length
+  );
+  const result = pokemonFiltrado.length
     ? pokemonFiltrado
     : arrayPokemon
 
-    const messageResult = pokemonFiltrado.length
+  const messageResult = pokemonFiltrado.length
     ? true
     : "Pokemon desconocido"
 
-    return {
-      resultSearch: result,
-      messageSearch: messageResult
-    };
+  return {
+    resultSearch: result,
+    messageSearch: messageResult
+  };
 };
 
 const formSearch = document.querySelector(".search");
@@ -251,16 +222,18 @@ formSearch.addEventListener("submit", async (e) => {
   const allInfo = await getAllInfoPokemons(URL_APIDetails)
   console.log(formSearch);
   const pokemonIngresado = document.querySelector(".searchPokemon").value
-  
-  if(pokemonIngresado){
+
+  if (pokemonIngresado) {
     const allInfo = await getAllInfoPokemons(URL_APIDetails)
     const searchTerm = filtroNombre(pokemonIngresado, allInfo);
     console.log(searchTerm);
     const pokemonNuevo = searchTerm.resultSearch[0]
-    console.log(pokemonNuevo)
-    printPokemonOtros(pokemonNuevo, otrosPokemones);
+    printPokemonOtros(searchTerm.resultSearch, otrosPokemones);
 
-  } else{
+  } else {
     alert("No se ha ingresado nada");
   }
 })
+
+
+
