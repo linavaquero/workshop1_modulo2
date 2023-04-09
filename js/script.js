@@ -134,6 +134,24 @@ const printPokemonOtros = (pokemonList, container) => {
   });
 };
 
+const printPokemonFiltrado = (pokemonList, container) => {
+  let contador = 0
+  let pokemonNuevo = {};
+  pokemonList = pokemonList.filter(o => pokemonNuevo[o.id] ? false : pokemonNuevo[o.id] = true)
+  console.log(pokemonList)
+  container.innerHTML = `<article>
+                          <h2>others</h2>
+                      </article>`;
+  pokemonList.forEach((pokemon) => {
+      container.innerHTML += `   
+                          <article>
+                              <img src=${pokemon.image} data-pokemon=${pokemon.name} >
+                          </article> `
+
+    }
+  )};
+;
+
 const printDetallePokemon = (pokemon) => {
 
   const containerPoke = document.getElementById("lado1"); //captura del contenedor
@@ -228,7 +246,7 @@ formSearch.addEventListener("submit", async (e) => {
     const searchTerm = filtroNombre(pokemonIngresado, allInfo);
     console.log(searchTerm);
     const pokemonNuevo = searchTerm.resultSearch[0]
-    printPokemonOtros(searchTerm.resultSearch, otrosPokemones);
+    printPokemonFiltrado(searchTerm.resultSearch, otrosPokemones);
 
   } else {
     alert("No se ha ingresado nada");
