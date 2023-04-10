@@ -112,7 +112,7 @@ const getAllInfoPokemons = async (url) => {
   }
 }
 
-
+//Creamos la función de pintar los pokemones
 const printPokemonOtros = (pokemonList, container) => {
   let contador = 0
   container.innerHTML = `<article>
