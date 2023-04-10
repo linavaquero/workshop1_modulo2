@@ -195,7 +195,7 @@ const printPokemonPower = (pokemonList, container) => {
 
   document.addEventListener("click", async (e) => {
     const getAtribute = e.target.getAttribute("data-pokemon");
-    console.log(getAtribute);
+    //console.log(getAtribute);
     if (getAtribute ==="pokemon1") {
       const pokemon = await getAllInfoPokemons(URL_APIDetails);
       console.log(pokemon);
@@ -203,11 +203,11 @@ const printPokemonPower = (pokemonList, container) => {
 });
 document.addEventListener("DOMContentLoaded", async () => {
   //Ejecutamos la funcion que nos obtiene los pokemones
-  // pokemons = await getPokemonsFromApi(URL_API);
-  // printPokemonsButtons(pokemons, boxButtons);
+  pokemons = await getPokemonsFromApi(URL_API);
+  printPokemonsButtons(pokemons, boxButtons);
 
   const allInfo = await getAllInfoPokemons(URL_APIDetails);
-  // const pokeiId = await getPokemonId(URL_APIDetails);
+  const pokeiId = await getPokemonId(URL_APIDetails);
   console.log(allInfo);
   // console.log(pokeiId);
 
