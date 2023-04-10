@@ -160,40 +160,45 @@ const printDetallePokemon = (pokemon) => {
   const tipo = ShowIconType.find(logotipo => logotipo.type === pokemon.type)
 
   containerPoke.innerHTML = `
-  <article id="contenedorpokemon">
+<article id="contenedorpokemonName">
+ <figure class="contenedorpokemon__figurelogo">
   <img src=${tipo.image} alt=${tipo.type}>
+  </figure>
   <h1>${pokemon.name}</h1>
-  </article>
+</article>
+<article id="contenedorpokemon">
+<figure class="contenedorpokemon__figure">
 <img src=${pokemon.image} alt=${pokemon.name} id=${pokemon.id} >
-  `
+</figure> 
+</article> `
   containerDescripcion.innerHTML = `
             <article class="descripcion">
             <ul class="inf" id="inf1">
-                <li>No</li>
+                <li class= "inf__li">No</li>
                 <li class="pokemonNum">${pokemon.id}</li>
             </ul>
             <ul class="inf" id="inf2">
-                <li>LEVEL</li>
+                <li class= "inf__li">LEVEL</li>
                 <li class="pokemonLev">${pokemon.level}</li>
             </ul>
             </article>
-            <article class="descripcion">
+            <article class="descripcion1">
             <ul class="inf">
-                <li>TYPE</li>
+                <li class= "inf__li">TYPE</li>
                 <li class="pokemonTyp">${pokemon.type}</li>
             </ul>
             <ul class="inf">
-                <li>HABILITY</li>
+                <li class= "inf__li">HABILITY</li>
                 <li class="pokemonHab">${pokemon.abilities}</li>
             </ul>
             </article>
-            <article class="descripcion">
+            <article class="descripcion2">
             <ul class="inf">
-                <li>HEIGHT</li>
+                <li class= "inf__li">HEIGHT</li>
                 <li class="pokemonHei">${pokemon.height}</li>
             </ul>
             <ul class="inf">
-                <li>WEIGHT</li>
+                <li class= "inf__li" >WEIGHT</li>
                 <li class="pokemonWei">${pokemon.weight}</li>
             </ul>
             </article>
