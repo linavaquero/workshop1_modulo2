@@ -21,12 +21,6 @@ header {
     border-radius: 10px 10px 0 0;
 }
 
-/* .navbar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .navbar ul {
     display: flex;
     gap: 5px;
@@ -48,11 +42,49 @@ header {
     margin: 0 15px 0 15px;
     padding-top: 30px;
     display: flex;
+    flex-direction: column;
     height: 390px;
 }
-
-#contenedorpokemonName {
+.search{
+     width: 35%;
+     display: flex;
+     height: auto;
+     position: relative;
+     left: 20%;
+     top: -4%;
+}
+.searchPokemon{
+    width: 45%;
+    border-radius: 6%;
+    border: 1px rgb(174, 35, 35);
+    padding: 1%;
+    background-color: beige;
+}
+.searchButton{
+    width: 12%;
+    height: auto;
+    border-radius: 6%;
+    background-color: rgb(174, 35, 35);
+    border-style:hidden;
+    padding: 1%;
+    position: relative;
+    left: -1%;
+}
+.searchButton:hover{
+    filter: drop-shadow(2px 2px 2px gold);
+    cursor: pointer;
+}
+.searchButton img{
     width: 30%;
+    mix-blend-mode: darken;
+}
+.pokemonprincipal_info{
+    display: flex;
+    position: relative;
+    top:2%;
+}
+#contenedorpokemonName {
+    width: 20%;
     background-color: beige;
     display: flex;
     justify-content: center;
@@ -61,10 +93,18 @@ header {
     border-radius: 20px;
     padding: 1%;
     position: relative;
-    top: 50%;
+    top: 25%;
 }
 h1{
     text-transform: capitalize;
+    align-self: center;
+}
+.contenedorpokemon__figurelogo{
+    width: 15%;
+}
+.contenedorpokemon__figurelogo img{
+    width: 100%;
+    mix-blend-mode: darken;
 }
 #contenedorpokemon{
     background-color: none;
@@ -72,6 +112,8 @@ h1{
     height: 35vh;
     justify-content: center;
     display:flex;
+    position: relative;
+    top: -16%;
 }
 #contenedorpokemon figure{
     justify-content: center;
@@ -87,8 +129,6 @@ h1{
     mix-blend-mode: hard-light;
     filter: drop-shadow(8px 8px 8px rgb(15, 15, 15)) contrast(117%) saturate(133%);
     image-rendering:pixelated;
-    
-    
 }
 .contenedorpokemon__figure img:hover{
     transform: scale(1.2);
@@ -102,8 +142,6 @@ h1{
     line-height: 50px;
    
 }
-
-
 #imgpokemon {
     display: block;
     margin: auto;
@@ -116,27 +154,29 @@ h1{
 }
 
 #lado2 {
-    width: 30%;
+    width: 20%;
     background-color: #807373;
     border-radius: 20px;
     margin-right: 200px;
-    margin-top: 2%;
+    position: relative;
+    top:-16%;
 }
 
 .descripcion {
     display: flex;
     gap: 28%;
-    margin-left: 28%;
+    margin-left: 20%;
+    margin-top: 1%;
 }
 .descripcion1 {
     display: flex;
     gap: 18%;
-    margin-left: 28%;
+    margin-left: 20%;
 }
 .descripcion2 {
     display: flex;
     gap: 11%;
-    margin-left: 28%;
+    margin-left: 20%;
 }
 
 .inf {
@@ -181,36 +221,12 @@ footer img:hover {
     filter: drop-shadow(2px 2px 4px gold);
 }
 
-.search{
-    height: 30px;
-    display: flex;
-    justify-content: center;
-
-}
-
-.searchPokemon{
-    border-radius: 5px;
-    height: 30px;
-    width: 200px;
-}
-
-.searchButton{
-    width: 40px;
-    border-radius: 5px;
-}
-
-.searchIcon{
-    width: 20px;
-}
-
 h2 {
     margin-top: 25px;
     margin-left: 50px;
     font-size: 40px;
     text-transform: uppercase;
 }
-
-
 
 @media screen and (max-width: 700px) {
     header {
@@ -220,7 +236,6 @@ h2 {
 
     #contenedorpokemon {
         width: 100%;
-
     }
 
     #imgpokemon {
@@ -234,41 +249,59 @@ h2 {
         flex-direction: column;
         height: 390px;
     }
-
+    .search{
+        width: 75%;
+    }
+    .searchPokemon{
+        width: 81%;
+        position: relative;
+        left: -15%;
+    }
+    .searchButton{
+        width: 20%;
+        height: auto;
+        position: relative;
+        left: -15%;
+    }
     #lado1 {
-        width: 100%
+        width: 100%;
+        top:12%;
     }
     #contenedorpokemonName{
-        width: 60%;
-        top:15%;
-        left: 7%;
+        width: 43%;
+        top: -1%;
+        left: 14%;
+    }
+    .contenedorpokemon__figure{
+        width: 40%;
+        top: -1%;
     }
     .contenedorpokemon__figure img{
         left: auto;
-        top: -8%;
+        top: -6%;
     }
     #lado2 {
     width: 68%;
     height: 181px;
     position: absolute;
-    top: 42%;
-    margin-left: 11%;
+    top: 64%;
+    margin-left: 16%;
     }
 
     .descripcion {
         display: flex;
         gap: 50px;
-        margin-left: 22%;
+        margin-left: 20%;
     }
     .descripcion1 {
         display: flex;
         gap: 29px;
-        margin-left: 22%;
+        margin-left: 20%;
     }
     .descripcion2 {
         display: flex;
         gap: 15px;
-        margin-left: 22%;
+        margin-left: 20%;
     }
 
     footer {
@@ -282,7 +315,7 @@ h2 {
         padding-left: 12%;
         padding-right: 12%;
         height: auto;
-        border-radius: 2%;
+        border-radius: 14%;
     }
     .inf {
         margin: 10px;
