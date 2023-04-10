@@ -148,6 +148,77 @@ const printPokemonFiltrado = (pokemonList, container) => {
                               <img src=${pokemon.image} data-pokemon=${pokemon.name} >
                           </article> `
 
+const getPokemonId = async (id) => { 
+    //METODO GET
+    const response = await axios(`${URL}/${id}`);
+    const PokemonId= response.data.id;
+    console.log("datos del get post by ID", PokemonId);
+};
+
+const printPokemonPower = (pokemonList, container) => {
+    container.innerHTML = "";
+    pokemonList.forEach((pokemon) => {
+        // que la imagen que pinte sea la del poder 
+      container.innerHTML += `
+      <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
+      <h1>${pokemon.name}</h1>
+      `;
+    });
+  };
+
+  const printPokemon = (pokemonList, container) => {
+    container.innerHTML = "";
+    pokemonList.forEach((poke) => {
+      container.innerHTML += `
+      <img src=${pokemon.sprites.front_default} alt=${pokemon.name}>
+      `;
+    });
+  };
+// función pintar los detalles 
+  const pokemonNum= document.querySelector(".pokemonNum");
+  const pokemonLev=document.querySelector(".pokemonLev");
+  const pokemonTyp=document.querySelector(".pokemonTyp");
+  const pokemonHab=document.querySelector(".pokemonHab");
+  const pokemonHei=document.querySelector(".pokemonHei");
+  const pokemonWei=document.querySelector(".pokemonWei");
+  
+  const printDetails = (pokemonList, container) => {
+    container.innerHTML = "";
+    pokemonList.forEach((pokemon) => {
+        let pokemonNumText= document.createTextNode();
+        // pokemonNum.appendChild(pokemonNumText);
+        const getInfoOnePokemon = async (url) => { 
+          try {
+            const { data } = await axios.get(url); //desestructuración de objetos
+            return data.id;
+          } catch (error) {
+            console.log(error);
+            alert("Usuario, ocurrio un error");
+            return [];
+          }
+        };
+      console.log(pokemonId);
+    // insertar la información en el contenedor
+        pokemonNum.innerText= pokemonId;
+        const pokemonLevel= 
+        pokemonLev.innerText=pokemonLevel
+        const pokemonType=
+        pokemonTyp.innerText=pokemonType
+        const pokemonHeight= 
+        pokemonHei.innerText=pokemonHeight;
+        const pokemonWeight=
+        pokemonWei.innerText=pokemonWeight;
+    });
+   
+ };
+
+  document.addEventListener("click", async (e) => {
+    const getAtribute = e.target.getAttribute("data-pokemon");
+    //console.log(getAtribute);
+    if (getAtribute ==="pokemon1") {
+      const pokemon = await getAllInfoPokemons(URL_APIDetails);
+      console.log(pokemon);
+
     }
   )};
 ;
@@ -216,8 +287,20 @@ otrospokemones.addEventListener("click", async (e) => {
   }
 });
 document.addEventListener("DOMContentLoaded", async () => {
+
+  //Ejecutamos la funcion que nos obtiene los pokemones
+  pokemons = await getPokemonsFromApi(URL_API);
+  printPokemonsButtons(pokemons, boxButtons);
+
+  const allInfo = await getAllInfoPokemons(URL_APIDetails);
+  const pokeiId = await getPokemonId(URL_APIDetails);
+  console.log(allInfo);
+  // console.log(pokeiId);
+
+
   const allInfo = await getAllInfoPokemons(URL_APIDetails);
   printPokemonOtros(allInfo, otrosPokemones)
+
 });
 
 //Busqueda del Pokemon por nombre
