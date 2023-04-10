@@ -226,11 +226,11 @@ const filtroNombre = (nombre, arrayPokemon) => {
   );
   const result = pokemonFiltrado.length
     ? pokemonFiltrado
-    : arrayPokemon
+    : []
 
   const messageResult = pokemonFiltrado.length
     ? true
-    : "Pokemon desconocido"
+    : alert("Pokemon desconocido")
 
   return {
     resultSearch: result,
@@ -247,16 +247,13 @@ formSearch.addEventListener("submit", async (e) => {
   const pokemonIngresado = document.querySelector(".searchPokemon").value
 
   if (pokemonIngresado) {
-    const allInfo = await getAllInfoPokemons(URL_APIDetails)
     const searchTerm = filtroNombre(pokemonIngresado, allInfo);
     console.log(searchTerm);
-    const pokemonNuevo = searchTerm.resultSearch[0]
-    printPokemonFiltrado(searchTerm.resultSearch, otrosPokemones);
+ printPokemonFiltrado(searchTerm.resultSearch, otrosPokemones);
 
   } else {
     alert("No se ha ingresado nada");
   }
 })
-
 
 
